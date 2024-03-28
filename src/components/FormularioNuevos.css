@@ -1,0 +1,30 @@
+form{
+    width: 70%;
+    min-width: 600px;
+    padding: 25px 50px;
+    background-repeat:repeat;
+    background: linear-gradient(
+        rgba(223, 233, 243, 0.979),
+        rgba(248, 248, 248, 0.39)
+    ),url("./img/fondo.jpg");
+}
+
+label{
+    position: relative;
+    margin: 30px auto 0 auto;
+}
+
+body{
+    background-repeat: repeat;
+    background: linear-gradient( to top,
+    rgba(207, 217, 223, 0.582),
+    rgba(226, 235, 240, 0.678)
+        ),url("./img/patas2.jpg");
+}
+span{
+    display: block;
+    color: rgb(165, 0, 0);
+    font-size:15px;
+    padding-top: 5px;
+    padding-left: 5px;
+}
