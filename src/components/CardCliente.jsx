@@ -1,6 +1,8 @@
 import React from 'react'
+import CardMascota from './CardMascota'
 
-export default function CardCliente(){
+export default function CardCliente({cliente}){
+
     return (
     <>
         <div className="card border-primary col-sm-5 col-md-5 col-lg-5 mb-3 mx-4">
@@ -13,12 +15,12 @@ export default function CardCliente(){
                             </div>
                         </div>
                         <div className="col-sm-10 col-md-10 col-lg-10">
-                            <h5 className="card-title text-center" style={{marginTop:'10px'}}>Paca López Fernandez</h5>
+                            <h5 className="card-title text-center" style={{marginTop:'10px'}}>{cliente.nombre} {cliente.apellidos}</h5>
                         </div>
                         <div className="col-sm-12 col-md-12 col-lg-12 pt-4">
-                            <p className="card-text ">Dni: 12345678Z</p>
-                            <p className="card-text">Email: pacalopez@email.com</p>
-                            <p className="card-text">Tel: 666888999</p>
+                            <p className="card-text ">Dni: {cliente.dni}</p>
+                            <p className="card-text">Email:  {cliente.correo}</p>
+                            <p className="card-text">Tel:  {cliente.telefono}</p>
                         </div>
                     </div>
                     <div className="col-sm-12 col-md-12 col-lg-12 pb-2">
@@ -31,29 +33,15 @@ export default function CardCliente(){
                                     <tr>
                                         <th scope="col">#</th>
                                         <th scope='col'>Tipo de mascota</th>
-                                        <th scope='col'>Dni</th>
                                         <th scope='col'>Nombre</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <th scope="row" style={{padding:'10px'}}>1</th>
-                                    <td>Perro</td>
-                                    <td>12345678Y</td>
-                                    <td>Otto</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" style={{padding:'10px'}}>2</th>
-                                    <td>Gato</td>
-                                    <td>5784578Y</td>
-                                    <td>Mantequilla</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" style={{padding:'10px'}}>3</th>
-                                    <td>Cobaya</td>
-                                    <td>35336688Y</td>
-                                    <td>Noa</td>
-                                </tr>
+                                    { 
+                                        cliente.mascotas.map((mascota, indice)=>(
+                                            <CardMascota key={indice} mascota={mascota} indice={indice} />
+                                        ))
+                                    }
                                 </tbody>
                             </table>   
                         </div>
