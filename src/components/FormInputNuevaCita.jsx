@@ -37,6 +37,7 @@ function Formulario() {
     //   archivo: '',
     //   aceptaTerminos: false
     // })
+    //pendiente de realizar
     reset();
   });
 
@@ -107,103 +108,7 @@ function Formulario() {
           <span>{errors.fechaNacimiento.message}</span>
         )}
       </div>
-
-      <div>
-        <label>Contraseña:</label>
-        <input
-          type="password"
-          name="password"
-          {...register("password", {
-            required: {
-              value: true,
-              message: "Contraseña es requerida",
-            },
-            minLength: {
-              value: 6,
-              message: "Contraseña debe ser mayor a 6 caracteres",
-            },
-          })}
-        />
-        {errors.password && <span>{errors.password.message}</span>}
-      </div>
-
-      <div>
-        <label>Confirma Contraseña:</label>
-        <input
-          type="password"
-          name="confirmarPassword"
-          {...register("confirmarPassword", {
-            required: {
-              value: true,
-              message: "Confirmar contraseña es requerida",
-            },
-            minLength: {
-              value: 6,
-              message: "Confirmar contraseña debe ser mayor a 6 caracteres",
-            },
-            validate: (value) =>
-              value === password.current || "Las contraseñas no coinciden",
-          })}
-        />
-        {errors.confirmarPassword && (
-          <span>{errors.confirmarPassword.message}</span>
-        )}
-      </div>
-
-      <div>
-        <label htmlFor="pais">Pais:</label>
-        <select name="pais" id="pais" {...register("pais")}>
-          <option value="mx">México</option>
-          <option value="co">Colombia</option>
-          <option value="ar">Argentina</option>
-        </select>
-
-        {watch("pais") === "ar" && (
-          <input
-            type="text"
-            placeholder="Provincia"
-            {...register("provincia", {
-              required: {
-                value: true,
-                message: "Provincia es requerida",
-              },
-            })}
-          />
-        )}
-      </div>
-
-      <div>
-        <label htmlFor="archivo">subir nombre de archivo:</label>
-        <input
-          type="file"
-          onChange={(e) => {
-            setValue("archivo", e.target.files[0].name);
-          }}
-        />
-        {errors.archivo && <span>{errors.archivo.message}</span>}
-      </div>
-
-      <div>
-        <input
-          type="checkbox"
-          name="aceptaTerminos"
-          {...register("aceptaTerminos", {
-            required: {
-              value: true,
-              message: "Acepta los términos y condiciones",
-            },
-          })}
-        />
-        <label>Acepto los términos y condiciones</label>
-        {errors.aceptaTerminos && <span>{errors.aceptaTerminos.message}</span>}
-      </div>
-
-      <button type="submit">Enviar</button>
-
-      <pre style={{ width: "400px" }}>{JSON.stringify(watch(), null, 2)}</pre>
-      <h3>Hello {watch("nombre")}</h3>
     </form>
   );
 }
-   
 export default FormInputNuevaCita;

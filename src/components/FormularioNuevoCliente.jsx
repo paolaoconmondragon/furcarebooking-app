@@ -2,16 +2,35 @@ import React from 'react'
 import "./FormularioNuevos.css"
 import {useForm} from 'react-hook-form'
 import Swal from 'sweetalert2'
+import { useClientes } from '../hooks/useClientes';
+import { useNavigate } from "react-router-dom";
 
 export default function FormularioNuevoCliente(){
     const{register, handleSubmit, formState: {errors}} = useForm();
+
+    const {handleClickNuevoCliente} = useClientes();
+    
+    const navigate = useNavigate();
     
     const onSubmit = (data) => {
-        console.log(data)
+        let cliente = {
+            nombre: data.nombre,
+            apellidos: data.apellidos,
+            correo: data.correo,
+            telefono: data.telefono,
+            dni: data.dni,
+            mascotas:[
+                {
+                    nombre: data.mascota,
+                    tipo: data.tipo
+                }
+            ]
+        }
+        handleClickNuevoCliente(cliente);
+        navigate("/clientes");
     }
 
     const onError = (errors) =>{
-        console.log(errors)
         Swal.fire({
             title: 'Faltan datos por informar correctamente.',
             text:'Por favor, revisa los datos del cliente.',

@@ -21,6 +21,7 @@ export function useCitas(){
   //       }
   //   });
   // }
+  //Pendiente de realizar
 
   const handleClickFinalizar = (idCita) =>{
     Swal.fire({
