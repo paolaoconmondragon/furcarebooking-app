@@ -5,8 +5,10 @@ import axios from 'axios';
 export default function Clientes(){
     const BASE_URL="http://localhost:8080/clientes";
 
+    //Variable de estado - dentro del hook useState se le da el valor inicial de esa variable, además proporciona el setter
     const [clientes, setClientes] = useState([]);
 
+    //hacer efectos o eventos en base de las dependencias que se fijen, un array vacío significa ejecutarlo cuando cargue el componente
     useEffect(()=>{
         cargarClientes();
     }, []);

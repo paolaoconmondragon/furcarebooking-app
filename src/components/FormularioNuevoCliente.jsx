@@ -109,7 +109,7 @@ export default function FormularioNuevoCliente(){
                     </div>
                     <div className="row">
                         <div className="col-sm-10 col-md-6 col-lg-6 mb-2 mt-3">
-                            <select className="form-select" {...register("tipo",  {
+                            <select className="form-select" id="mascota" {...register("tipo",  {
                                 required: {value: "Tipo de mascota es requerido"},
                             })} >
                                 <option value={""}>Tipo de mascota</option>

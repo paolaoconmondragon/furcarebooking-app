@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios';
 
 const BASE_URL= "http://localhost:8080/citas";
 
@@ -13,6 +13,14 @@ export const finalizarCita = async(idCita) =>{
 export const cancelarCita = async(idCita) =>{
     try {
         return await axios.delete(`${BASE_URL}/cancelarCita/${idCita}`)
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const nuevaCita = async(cita) =>{
+    try {
+        return await axios.post(`${BASE_URL}`, cita);
     } catch (error) {
         console.log(error)
     }

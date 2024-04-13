@@ -1,5 +1,5 @@
 import Swal from "sweetalert2";
-import { cancelarCita, finalizarCita } from "../services/citasService";
+import { cancelarCita, finalizarCita, nuevaCita } from "../services/citasService";
 import { useNavigate } from "react-router-dom";
 
 export function useCitas(){
@@ -41,7 +41,7 @@ export function useCitas(){
             text: "La cita ha sido finalizada correctamente.",
             icon: "success"
           });
-          navigate("/citas");
+          navigate("/");
         }
     });
   }
@@ -64,13 +64,24 @@ export function useCitas(){
             text: "La cita ha sido cancelada correctamente.",
             icon: "success"
           });
-          navigate("/citas");
+          navigate("/");
         }
     });
   }
 
+  const handleClickNuevaCita = (cita) =>{
+    nuevaCita(cita);
+    Swal.fire({
+        title: 'La cita se ha registrado correctamente.',
+        text:'Los datos se han guardado correctamente en el sistema.',
+        icon: 'success',
+        confirmButtonColor: '#3085d6',
+        confirmButtonText: 'Aceptar'
+    })
+}
+
   return{
-    // handleClickEdit,
+    handleClickNuevaCita,
     handleClickFinalizar,
     handleClickCancelar
   }
