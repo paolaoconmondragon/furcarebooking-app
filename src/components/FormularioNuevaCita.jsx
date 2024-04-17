@@ -57,7 +57,6 @@ export default function FormularioNuevaCita(){
     }
 
     const onError = (errors) =>{
-        console.log(errors)
         Swal.fire({
             title: 'Faltan datos por informar correctamente.',
             text:'Por favor, revisa los datos de la cita.',
@@ -76,7 +75,7 @@ export default function FormularioNuevaCita(){
     return (
         <>
         <div className='col-sm-10 col-md-9 col-lg-12 m-3' style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
-            <form className='card border-primary' onSubmit={handleSubmit(onSubmit, onError)}>
+            <form className='card border-primary formularioNuevo' onSubmit={handleSubmit(onSubmit, onError)}>
                 <div className="row">
                     <div className="col-md-6 col-lg-6">
                         <label htmlFor="cliente" className="form-label">Cliente</label>

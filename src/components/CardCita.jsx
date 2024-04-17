@@ -15,8 +15,8 @@ export default function CardCita({cita}){
                     <p className="card-text">Tipo de cita: {cita.tipo == "C" ? "Consulta veterinaria" : "Peluquería"}</p>
                 </div>
                 <div className='col-sm-12 col-md-12 col-lg-12 mb-3'>
-                    {cita.estado == "P" && <CardCitaBotones idCita={cita.id}/>}
-                </div>        
+                    {cita.estado == "P" && <CardCitaBotones idCita={cita.id} fechaCita={cita.fecha} horaCita={cita.hora}/>}
+                </div>
             </div>
         </>
     )

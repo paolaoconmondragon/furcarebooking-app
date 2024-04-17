@@ -25,6 +25,7 @@ export const nuevaCita = async(cita) =>{
         console.log(error)
     }
 }
-// export const editarCitas = async(id)=>{
-//     await axios.delete(`${BASE_URL}/${id}`);
-// }
+
+export const editarCita = async(idCita, cita)=>{
+    await axios.put(`${BASE_URL}/editarCita/${idCita}`, cita);
+}

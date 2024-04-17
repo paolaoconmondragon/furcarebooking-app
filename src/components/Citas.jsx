@@ -14,7 +14,6 @@ export default function Citas(){
     const cargarCitas = async() => {
         const resultado = await axios.get(BASE_URL);
         setCitas(resultado.data);
-        console.log(resultado.data);
     }
 
     return (

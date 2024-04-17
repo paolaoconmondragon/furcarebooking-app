@@ -1,27 +1,21 @@
 import Swal from "sweetalert2";
-import { cancelarCita, finalizarCita, nuevaCita } from "../services/citasService";
+import { cancelarCita, editarCita, finalizarCita, nuevaCita } from "../services/citasService";
 import { useNavigate } from "react-router-dom";
 
 export function useCitas(){
 
   const navigate = useNavigate();
     
-  // const handleClickEdit = () =>{
-  //   Swal.fire({
-  //       title: "¿Quieres editar la cita?",
-  //       showDenyButton: true,
-  //       showCancelButton: true,
-  //       confirmButtonText: "Editar",
-  //       denyButtonText: `No editar`
-  //   }).then((result) => {
-  //       if (result.isConfirmed) {
-  //         Swal.fire("Cita editada correctamente!", "", "success");
-  //       } else if (result.isDenied) {
-  //         Swal.fire("No se ha podido guardar los cambios de la cita", "", "info");
-  //       }
-  //   });
-  // }
-  //Pendiente de realizar
+  const handleClickEdit = (idCita, cita) =>{
+    editarCita(idCita, cita);
+    Swal.fire({
+        title: 'La cita se ha editado correctamente.',
+        text:'Los datos se han editado correctamente en el sistema.',
+        icon: 'success',
+        confirmButtonColor: '#3085d6',
+        confirmButtonText: 'Aceptar'
+    })
+  }
 
   const handleClickFinalizar = (idCita) =>{
     Swal.fire({
@@ -83,6 +77,7 @@ export function useCitas(){
   return{
     handleClickNuevaCita,
     handleClickFinalizar,
-    handleClickCancelar
+    handleClickCancelar,
+    handleClickEdit
   }
 }

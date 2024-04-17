@@ -43,7 +43,7 @@ export default function FormularioNuevoCliente(){
     return (
         <>
         <div className='col-sm-10 col-md-9 col-lg-12 m-3' style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
-            <form className='card border-primary' onSubmit={handleSubmit(onSubmit, onError)}>
+            <form className='card border-primary formularioNuevo' onSubmit={handleSubmit(onSubmit, onError)}>
                 <div className="row">
                     <div className="col-md-6 col-lg-6">
                         <label className="form-label">Nombre</label>
