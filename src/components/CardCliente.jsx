@@ -11,7 +11,7 @@ export default function CardCliente({cliente}){
                     <div className="row card-body">
                         <div className=" col-sm-2 col-md-2 col-lg-2">
                             <div className="card" style={{width:'80px', height:'80px'}}>
-                                <img src="./img/avatar1.png" className="img rounded-start" alt="..."/>
+                                <img src="./img/avatar.png" className="img rounded-start" alt="..."/>
                             </div>
                         </div>
                         <div className="col-sm-10 col-md-10 col-lg-10">
